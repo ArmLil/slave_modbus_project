@@ -53,20 +53,20 @@ setInterval(() => {
             "controllerModbusId=",
             controllerId.toString()
           );
-          let registerAddress;
-          if (registers[i].address.toString() === "5") {
-            registerAddress = "0x0000";
-          }
-          if (registers[i].address.toString() === "6") {
-            registerAddress = "0x0011";
-          }
+          // let registerAddress;
+          // if (registers[i].address.toString() === "5") {
+          //   registerAddress = "0x0000";
+          // }
+          // if (registers[i].address.toString() === "6") {
+          //   registerAddress = "0x0011";
+          // }
           axios({
             method: "put",
             url: `http://${headerHost}:${headerPort}/api/v1/registers_Controllers_values/`,
             data: {
               controllerModbusId: controllerId.toString(),
-              // registerAddress: registers[i].address.toString(),
-              registerAddress: registerAddress,
+              registerAddress: registers[i].address.toString(),
+              // registerAddress: registerAddress,
               value: readResponse.data[0].toString(),
             },
           })
