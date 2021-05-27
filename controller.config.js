@@ -123,27 +123,27 @@ module.exports = {
     // },
     {
       address: "1312",
-      leng: 1,
+      leng: 2,
     },
     {
       address: "1316",
-      leng: 1,
+      leng: 2,
     },
     {
       address: "1374",
-      leng: 1,
+      leng: 4,
     },
     {
       address: "13FB",
-      leng: 1,
+      leng: 4,
     },
     {
       address: "1399",
-      leng: 1,
+      leng: 4,
     },
     {
       address: "139D",
-      leng: 1,
+      leng: 4,
     },
   ],
 };
