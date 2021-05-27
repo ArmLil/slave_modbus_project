@@ -4,6 +4,7 @@ module.exports = {
   controllerId: 1,
   controllerPort: "/dev/tnt1",
   baudRate: 9600,
+  interval: 3000, // 3 sec
   // registers: [
   //   {
   //     address: 5,

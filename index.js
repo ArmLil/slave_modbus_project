@@ -4,8 +4,6 @@ const axios = require("axios");
 // create an empty modbus client
 var ModbusRTU = require("modbus-serial");
 
-console.log("Hi from index.js");
-// console.log(controllerConfig);
 let {
   controllerId,
   registers,
@@ -13,6 +11,7 @@ let {
   baudRate,
   headerHost,
   headerPort,
+  interval,
 } = controllerConfig;
 console.log({
   controllerId,
@@ -21,8 +20,18 @@ console.log({
   baudRate,
   headerHost,
   headerPort,
+  interval,
 });
 var client = new ModbusRTU();
+
+const socketio = require("socket.io-client");
+const socket = socketio.connect(`http://${headerHost}:${headerPort}`);
+
+socket.on("connect", (socket) => {
+  console.log("socket connected");
+});
+
+socket.emit("private message", { user: "me", msg: "whazzzup?" });
 
 // open connection to a serial port
 client
@@ -88,18 +97,6 @@ setInterval(() => {
     }
   })();
 
-  var io = require("socket.io-client"),
-    socket = io.connect(`http://localhost`, {
-      port: 1337,
-      reconnect: true,
-    });
-
-  socket.on("connect", function () {
-    console.log("socket connected");
-  });
-
-  socket.emit("private message", { user: "me", msg: "whazzzup?" });
-
   // registers.forEach(async (reg, i) => {
   //   await registerMethods
   //     ._readHoldingRegisters(
@@ -147,6 +144,6 @@ setInterval(() => {
   //     console.log("readDiscreteInputsResponse=", readDiscreteInputsResponse);
   //   })
   //   .catch(console.error);
-}, 3000);
+}, interval);
 
 // setTimeout(readHoldingRegs, 1000, 5, 2, 1);
