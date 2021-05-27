@@ -8,19 +8,21 @@ let {
   controllerId,
   registers,
   controllerPort,
-  baudRate,
   headerHost,
   headerPort,
   interval,
+  modbusOptions,
+  clientId,
 } = controllerConfig;
 console.log({
   controllerId,
   registers,
   controllerPort,
-  baudRate,
   headerHost,
   headerPort,
   interval,
+  modbusOptions,
+  clientId,
 });
 var client = new ModbusRTU();
 
@@ -34,10 +36,8 @@ socket.on("connect", (socket) => {
 socket.emit("private message", { user: "me", msg: "whazzzup?" });
 
 // open connection to a serial port
-client
-  .connectRTUBuffered(controllerPort, { baudRate: baudRate })
-  .catch(console.error);
-
+client.connectRTUBuffered(controllerPort, modbusOptions).catch(console.error);
+client.setID(clientId);
 //..........................................
 setInterval(() => {
   console.log("setInterval");
@@ -47,7 +47,7 @@ setInterval(() => {
         ._readHoldingRegisters(
           (addr = registers[i].address),
           (reg_len = registers[i].leng),
-          // (device_id = controllerId),
+          // (device_id = clientId),
           client
         )
         .then((readResponse) => {

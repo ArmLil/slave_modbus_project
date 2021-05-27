@@ -1,10 +1,18 @@
 module.exports = {
-  headerHost: "127.0.0.1",
+  clientId: 247,
+  // headerHost: "127.0.0.1",
+  headerHost: "172.28.1.88",
   headerPort: "3002",
   controllerId: 1,
-  controllerPort: "/dev/tnt1",
-  baudRate: 9600,
-  interval: 3000, // 3 sec
+  // controllerPort: "/dev/tnt1",
+  controllerPort: "/dev/ttyS0",
+  modbusOptions: {
+    baudRate: 9600,
+    parity: "odd",
+    dataBits: 8,
+    stopBits: 1,
+  },
+  interval: 5000, // 3 sec
   // registers: [
   //   {
   //     address: 5,
@@ -17,49 +25,60 @@ module.exports = {
   // ],
   registers: [
     //Управление, настройка и состояния контроллера
-    {
-      address: "0x0000",
-      leng: 1,
-    },
     // {
+    // address: 0,
+    // address: 0x0000,
+    // leng: 1,
+    // },
+    // {
+    //   address: 17,
     //   address: "0x0011",
     //   leng: 1,
     // },
     // {
+    //   address: 26,
     //   address: "0x001A",
     //   leng: 1,
     // },
     // //Информация о журналах
     // {
+    //   address: 32,
     //   address: "0x0020",
     //   leng: 1,
     // },
     // {
+    //   address: 33,
     //   address: "0x0021",
     //   leng: 1,
     // },
     // {
+    //   address: 34,
     //   address: "0x0022",
     //   leng: 1,
     // },
     // {
+    //   address: 35,
     //   address: "0x0023",
     //   leng: 1,
     // },
     // {
+    //   address: 37,
     //   address: "0x0025",
     //   leng: 1,
     // },
     // {
+    //   address: 39,
     //   address: "0x0027",
     //   leng: 1,
     // },
     // //Значения АЦП
     // {
+    //   address: 48,
     //   address: "0x0030",
     //   leng: 1,
     // },
     // {
+    //   address: 48,
     //   address: "0x0032",
     //   leng: 1,
     // },
@@ -102,29 +121,29 @@ module.exports = {
     //   address: "0x1311",
     //   leng: 1,
     // },
-    // {
-    //   address: "0x1312",
-    //   leng: 1,
-    // },
-    // {
-    //   address: "0x1316",
-    //   leng: 1,
-    // },
-    // {
-    //   address: "0x1374",
-    //   leng: 1,
-    // },
-    // {
-    //   address: "0x13FB",
-    //   leng: 1,
-    // },
-    // {
-    //   address: "0x1399",
-    //   leng: 1,
-    // },
-    // {
-    //   address: "0x139D",
-    //   leng: 1,
-    // },
+    {
+      address: "1312",
+      leng: 1,
+    },
+    {
+      address: "1316",
+      leng: 1,
+    },
+    {
+      address: "1374",
+      leng: 1,
+    },
+    {
+      address: "13FB",
+      leng: 1,
+    },
+    {
+      address: "1399",
+      leng: 1,
+    },
+    {
+      address: "139D",
+      leng: 1,
+    },
   ],
 };
