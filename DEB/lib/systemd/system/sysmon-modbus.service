@@ -5,8 +5,8 @@ After=network.target
 [Service]
 Type=simple
 PIDFile=/run/sysmon_modbus.service.pid
-User=sysmon
-Group=sysmon
+User=root
+Group=root
 Restart=always
 WorkingDirectory=/var/lib/sysmon/
 ExecStart=/bin/bash /var/lib/sysmon/start_modbus.sh

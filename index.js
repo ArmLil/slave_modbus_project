@@ -43,9 +43,13 @@ setInterval(() => {
   console.log("setInterval");
   (async function loop() {
     for (let i = 0; i < registers.length; ++i) {
+      console.log(
+        " registers[i].address = ",
+        "0x" + registers[i].address.toString(16)
+      );
       await registerMethods
         ._readHoldingRegisters(
-          (addr = registers[i].address),
+          (addr = registers[i].address.toString()),
           (reg_len = registers[i].leng),
           // (device_id = clientId),
           client
@@ -56,9 +60,8 @@ setInterval(() => {
             readResponse,
             "\n",
             "value",
-            readResponse.data[0].toString(),
+            readResponse.data[0],
             "registerAddress",
-            registers[i].address.toString(),
             "controllerModbusId=",
             controllerId.toString()
           );
@@ -74,7 +77,7 @@ setInterval(() => {
             url: `http://${headerHost}:${headerPort}/api/v1/registers_Controllers_values/`,
             data: {
               controllerModbusId: controllerId.toString(),
-              registerAddress: registers[i].address.toString(),
+              registerAddress: "0x" + registers[i].address.toString(16),
               // registerAddress: registerAddress,
               value: readResponse.data[0].toString(),
             },

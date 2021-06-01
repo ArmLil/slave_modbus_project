@@ -13,136 +13,126 @@ module.exports = {
     stopBits: 1,
   },
   interval: 5000, // 3 sec
-  // registers: [
-  //   {
-  //     address: 5,
-  //     leng: 1,
-  //   },
-  //   {
-  //     address: 6,
-  //     leng: 1,
-  //   },
-  // ],
+
   registers: [
+    //test registers
+    // {
+    //   address: 5,
+    //   leng: 1,
+    // },
+    // {
+    //   address: 6,
+    //   leng: 1,
+    // },
     //Управление, настройка и состояния контроллера
     // {
-    // address: 0,
     // address: 0x0000,
     // leng: 1,
     // },
     // {
-    //   address: 17,
-    //   address: "0x0011",
+    //   address: 0x0011,
     //   leng: 1,
     // },
     // {
-    //   address: 26,
-    //   address: "0x001A",
+    //   address: 0x001A,
     //   leng: 1,
     // },
     // //Информация о журналах
     // {
-    //   address: 32,
-    //   address: "0x0020",
+    //   address: 0x0020,
     //   leng: 1,
     // },
     // {
-    //   address: 33,
-    //   address: "0x0021",
+    //   address: 0x0021,
     //   leng: 1,
     // },
     // {
-    //   address: 34,
-    //   address: "0x0022",
+    //   address: 0x0022,
     //   leng: 1,
     // },
     // {
-    //   address: 35,
-    //   address: "0x0023",
+    //   address: 0x0023,
     //   leng: 1,
     // },
     // {
-    //   address: 37,
-    //   address: "0x0025",
+    //   address: 0x0025,
     //   leng: 1,
     // },
     // {
-    //   address: 39,
-    //   address: "0x0027",
+    //   address: 0x0027,
     //   leng: 1,
     // },
     // //Значения АЦП
     // {
-    //   address: 48,
-    //   address: "0x0030",
+    //   address: 0x0030,
     //   leng: 1,
     // },
     // {
-    //   address: 48,
-    //   address: "0x0032",
+    //   address: 0x0032,
     //   leng: 1,
     // },
     // //Чтение\запись даты и времени
     // {
-    //   address: "0x0040",
+    //   address: 0x0040,
     //   leng: 1,
     // },
     // {
-    //   address: "0x0041",
+    //   address: 0x0041,
     //   leng: 1,
     // },
     // {
-    //   address: "0x0042",
+    //   address: 0x0042,
     //   leng: 1,
     // },
     // //Информация о журналах
     // {
-    //   address: "0x0060",
+    //   address: 0x0060,
     //   leng: 1,
     // },
     // {
-    //   address: "0x0062",
+    //   address: 0x0062,
     //   leng: 1,
     // },
     // {
-    //   address: "0x0064",
+    //   address: 0x0064,
     //   leng: 1,
     // },
     // {
-    //   address: "0x0068",
+    //   address: 0x0068,
     //   leng: 1,
     // },
     // //Учет нефтепродукта
     // {
-    //   address: "0x1310",
+    //   address: 0x1310,
     //   leng: 1,
     // },
     // {
-    //   address: "0x1311",
+    //   address: 0x1311,
     //   leng: 1,
     // },
+    /////////////////
     {
-      address: "1312",
+      address: 0x1312,
       leng: 2,
     },
     {
-      address: "1316",
+      address: 0x1316,
       leng: 2,
     },
     {
-      address: "1374",
+      address: 0x1374,
       leng: 4,
     },
     {
-      address: "13FB",
+      address: 0x13fb,
       leng: 4,
     },
     {
-      address: "1399",
+      address: 0x1399,
       leng: 4,
     },
     {
-      address: "139D",
+      address: 0x139d,
       leng: 4,
     },
   ],
