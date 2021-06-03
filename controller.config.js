@@ -12,7 +12,7 @@ module.exports = {
     dataBits: 8,
     stopBits: 1,
   },
-  interval: 5000, // 3 sec
+  interval: 5000, // 5 sec
 
   registers: [
     //test registers
@@ -114,26 +114,32 @@ module.exports = {
     {
       address: 0x1312,
       leng: 2,
+      type: "Float",
     },
     {
       address: 0x1316,
       leng: 2,
+      type: "Float",
     },
     {
       address: 0x1374,
       leng: 4,
+      type: "Double",
     },
     {
       address: 0x13fb,
       leng: 4,
+      type: "Double",
     },
     {
-      address: 0x1399,
+      address: 0x136c,
       leng: 4,
+      type: "Double",
     },
     {
-      address: 0x139d,
+      address: 0x1358,
       leng: 4,
+      type: "Double",
     },
   ],
 };

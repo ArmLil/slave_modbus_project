@@ -65,6 +65,14 @@ setInterval(() => {
             "controllerModbusId=",
             controllerId.toString()
           );
+          let value = null;
+          if (registers[i].type === "Float") {
+            value = readResponse.buffer.readFloatBE();
+          }
+          if (registers[i].type === "Double") {
+            value = readResponse.buffer.readDoubleBE();
+          }
+          console.log({ value });
           // let registerAddress;
           // if (registers[i].address.toString() === "5") {
           //   registerAddress = "0x0000";
@@ -79,7 +87,7 @@ setInterval(() => {
               controllerModbusId: controllerId.toString(),
               registerAddress: "0x" + registers[i].address.toString(16),
               // registerAddress: registerAddress,
-              value: readResponse.data[0].toString(),
+              value: value,
             },
           })
             .then((res) => {
@@ -87,13 +95,11 @@ setInterval(() => {
               else console.log(res);
             })
             .catch((error) => {
-              console.log(
+              console.error(
                 "error response ",
                 error.message
-                // error.message
                 // error.response.data
               );
-              // console.error(error);
             });
         })
         .catch(console.error);
@@ -148,5 +154,3 @@ setInterval(() => {
   //   })
   //   .catch(console.error);
 }, interval);
-
-// setTimeout(readHoldingRegs, 1000, 5, 2, 1);
