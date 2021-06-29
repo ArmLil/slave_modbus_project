@@ -1,3 +1,4 @@
+Дополнительная инфо про modbus
 https://habr.com/ru/post/409111/
 
 https://github.com/maisvendoo/qslave
@@ -14,8 +15,11 @@ sudo depmod
 sudo modprobe tty0tty
 sudo chmod 666 /dev/tnt\*
 
-выполнить это в директории где лежит проект qslave с Modbus клонированнный
+выполнить это в директории где лежит проект qslave с Modbus клонированный
 
 потом снова запустить свой qslave-gui
 
-это от суда https://askubuntu.com/questions/588800/how-can-i-set-up-virtual-serial-ports-linux-null-modem-emulator-using-tty0tty
+это от сюда https://askubuntu.com/questions/588800/how-can-i-set-up-virtual-serial-ports-linux-null-modem-emulator-using-tty0tty
+
+Функции для buffer
+https://js-node.ru/site/article?id=10#buf.readUInt16BE(offset[_noAssert])
