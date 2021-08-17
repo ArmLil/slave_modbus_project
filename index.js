@@ -4,7 +4,7 @@ const axios = require("axios");
 // create an empty modbus client
 var ModbusRTU = require("modbus-serial");
 
-const fuelControllers = ["1.2, 2.2", "3.2", "4.2", "6.2", "7.2"];
+// const fuelControllers = ["1.2, 2.2", "3.2", "4.2", "6.2", "7.2"];
 
 let {
   controllerId,
@@ -235,6 +235,9 @@ setInterval(() => {
           }
           if (registers[i].type === "Double") {
             value = readResponse.buffer.readDoubleBE();
+          }
+          if (registers[i].type === "Unsigned int") {
+            value = readResponse.buffer.readUInt16BE(2);
           }
           if (registers[i].name === "revs") {
             value = Number(value).toFixed(0);
